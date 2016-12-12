@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:id="@+id/ll"
+    android:descendantFocusability="blocksDescendants"
+    >
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="豆角"
+        android:textSize="15sp"
+        android:id="@+id/tv_child_item"
+        />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cb_child_item"
+        android:button="@drawable/selector_check"
+        android:scaleX="0.6"
+        android:scaleY="0.6"
+        />
+
+</LinearLayout>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp"
+    android:orientation="horizontal"
+    android:background="@drawable/menu_background"
+    >
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="5dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="桌号"
+                android:id="@+id/tv_table_number"
+                android:layout_marginRight="15dp"
+                />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_spinner_click"
+                android:id="@+id/btn_table_number"
+                android:text="101"
+                />
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="60dp"
+            >
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/fl_contain"
+                >
+
+            </FrameLayout>
+
+
+        </ScrollView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="5dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="菜类"
+                android:id="@+id/tv_dish_type"
+                android:layout_marginRight="15dp"
+                />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_spinner_click"
+                android:id="@+id/btn_dish_type"
+                android:text="全部"
+                />
+
+        </LinearLayout>
+
+        <ExpandableListView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/elv"
+            android:layout_weight="1"
+            android:layout_marginBottom="60dp"
+            >
+
+
+        </ExpandableListView>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/selector_choosedish"
+            android:id="@+id/btn_choosedish"
+            android:layout_gravity="right"
+            android:layout_marginRight="15dp"
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>

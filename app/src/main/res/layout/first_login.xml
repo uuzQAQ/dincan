@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    >
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ff0000"
+            android:text="亲，这是您首次登录，请修改密码哦!"
+            android:textSize="20sp"
+            android:layout_marginBottom="10dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="用户名 login03"
+            android:id="@+id/tv_flName"
+            android:textSize="20sp"
+            android:layout_marginBottom="10dp"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="    原密码"
+                android:layout_marginRight="10dp"
+                android:textSize="20sp"
+
+                />
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/input_bg"
+                android:hint="请输入原密码"
+                android:padding="5dp"
+                android:id="@+id/et_old_pw"
+                android:inputType="textPassword"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="    新密码"
+                android:layout_marginRight="10dp"
+                android:textSize="20sp"
+                />
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/input_bg"
+                android:hint="请输入新密码"
+                android:id="@+id/et_new_pw"
+                android:padding="5dp"
+                android:inputType="textPassword"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="确认密码"
+                android:layout_marginRight="10dp"
+                android:textSize="20sp"
+
+                />
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/input_bg"
+                android:hint="请重新输入新密码"
+                android:id="@+id/et_again_new_pw"
+                android:padding="5dp"
+                android:inputType="textPassword"
+                />
+        </LinearLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:background="@drawable/selector_ok"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/bt_ensure"
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>
