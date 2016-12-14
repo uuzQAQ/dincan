@@ -1,11 +1,14 @@
 package com.edu.feicui.dincan.db;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.edu.feicui.dincan.entity.DishMenu;
+import com.edu.feicui.dincan.entity.Order;
+import com.edu.feicui.dincan.entity.TempOrder;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -84,17 +87,54 @@ public class DianCanDBManager {
         Cursor cursor = database.rawQuery("select * from dish_list",null);
         List<DishMenu> list = new ArrayList<>();
         while(cursor.moveToNext()){
+            int dish_id = cursor.getInt(cursor.getColumnIndex("dish_id"));
             String dish_name = cursor.getString(cursor.getColumnIndex("dish_name"));
             String price = cursor.getString(cursor.getColumnIndex("price"));
             String introduction = cursor.getString(cursor.getColumnIndex("introduction"));
             String dish_class = cursor.getString(cursor.getColumnIndex("dish_class"));
             String img_path = cursor.getString(cursor.getColumnIndex("img_path"));
-            DishMenu dishMenu = new DishMenu(dish_name,price,introduction,dish_class,img_path);
+            DishMenu dishMenu = new DishMenu(dish_id,dish_name,price,introduction,dish_class,img_path);
             list.add(dishMenu);
         }
         cursor.close();
         cursor = null;
         return list;
+    }
+
+    public void saveOrder(Order order){
+        SQLiteDatabase database = helper.getWritableDatabase();
+        Cursor cursor = database.rawQuery("select * from orders where order_id = ?",new String[]{String.valueOf(order.getSerialNum())});
+        if(cursor.moveToFirst()){
+            return;
+        }
+
+        ContentValues values = new ContentValues();
+        values.put("order_id",order.getSerialNum());
+        values.put("table_num",order.getTableNum());
+        values.put("checkout",order.ischeck());
+
+        database.insert("orders",null,values);
+        database.close();
+    }
+
+    public void saveTempOrder(TempOrder tempOrder){
+        SQLiteDatabase database = helper.getWritableDatabase();
+        Cursor cursor = database.rawQuery("select * from temp_orders where dish_id = ?",new String[]{String.valueOf(tempOrder.getDishId())});
+        if(cursor.moveToFirst()){
+            return;
+        }
+
+        ContentValues values = new ContentValues();
+        values.put("table_num",tempOrder.getTableNum());
+        values.put("dish_id",tempOrder.getDishId());
+        values.put("count",tempOrder.getCount());
+        values.put("remark",tempOrder.getRemark());
+        database.insert("temp_orders",null,values);
+        database.close();
+    }
+
+    public Order getOrder(){
+
     }
 
 }

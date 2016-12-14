@@ -27,7 +27,7 @@ public class LoadImage {
         this.context = context;
     }
 
-    public void displayBitmap(String url, ImageView imageView){//iv用于显示url的图片
+    public void displayBitmap(String url, ImageView imageView){//iv用于显示url的图片 把三个步骤结合起来
         if(TextUtils.isEmpty(url)){
             return ;
         }
@@ -58,13 +58,13 @@ public class LoadImage {
         }
 
         @Override
-        public void putBitmap(String s, Bitmap bitmap) {//将图片缓冲在文件和内存中
+        public void putBitmap(String s, Bitmap bitmap) {//将图片缓冲在文件和内存中  缓存在内存中用的是lrucache
             cache.put(s,bitmap);
             saveBitmapToFileCache(s,bitmap);
         }
     };
 
-    private void saveBitmapToFileCache(String url,Bitmap bitmap){
+    private void saveBitmapToFileCache(String url,Bitmap bitmap){//保存到sd卡
         String filename = url.substring(url.lastIndexOf("/") + 1);
         File cacheDir  = context.getExternalCacheDir();
         if(cacheDir == null){//不存在context.getExternalCacheDir() = null
@@ -81,7 +81,7 @@ public class LoadImage {
         }
     }
 
-    private Bitmap getBitmapFromFileCache(String url){//1.内存2.缓存文件3.网络
+    private Bitmap getBitmapFromFileCache(String url){//1.内存2.缓存文件3.网络     这里是从文件读取
         String filename = url.substring(url.lastIndexOf("/") + 1);
         //获取缓冲文件目录
         File cacheDir = context.getExternalCacheDir();

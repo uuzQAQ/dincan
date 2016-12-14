@@ -27,7 +27,8 @@ public class DishMenu {
     public DishMenu() {
     }
 
-    public DishMenu(String dish_name, String price, String introduction, String dish_class, String img_path) {
+    public DishMenu(int dish_id, String dish_name, String price, String introduction, String dish_class,String img_path) {
+        this.dish_id = dish_id;
         this.dish_name = dish_name;
         this.price = price;
         this.introduction = introduction;

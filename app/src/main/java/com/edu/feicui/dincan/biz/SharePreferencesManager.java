@@ -16,7 +16,8 @@ public class SharePreferencesManager {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("tableNum",tableNum);
         editor.putString("dishName",dishMenu.getDish_name());
-        editor.putString("dishName",dishMenu.getPrice());
+        editor.putString("dishPrice",dishMenu.getPrice());
+        editor.putString("dishType",dishMenu.getDish_class());
         editor.commit();
     }
 

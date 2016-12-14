@@ -41,7 +41,7 @@ public class LoginActivity extends Activity {
     private ProgressDialog dialog;
 //权限
     private RequestQueue requestQueue;
-    private static final String url = "http://10.0.1.10:8080/GourmetOrderServer/loginServlet";//夜神不能用localhost
+    private static final String url = "http://10.0.2.2:8080/GourmetOrderServer/loginServlet";//夜神不能用localhost
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
