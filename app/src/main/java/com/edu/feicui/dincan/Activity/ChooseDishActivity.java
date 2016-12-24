@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -21,12 +23,17 @@ import com.edu.feicui.dincan.adapter.DishTypeAdapter;
 import com.edu.feicui.dincan.db.DianCanDBManager;
 import com.edu.feicui.dincan.entity.DishMenu;
 import com.edu.feicui.dincan.entity.MessageEvent;
+import com.edu.feicui.dincan.entity.Order;
+import com.edu.feicui.dincan.entity.TempOrder;
 import com.edu.feicui.dincan.fragment.DishTypeFragment;
 
 import org.greenrobot.eventbus.EventBus;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -54,8 +61,41 @@ public class ChooseDishActivity extends FragmentActivity {
     private List<DishMenu> list = new ArrayList<>();
     private DianCanDBManager dbManager;
     private DishTypeAdapter adapter;
-    private String currentTableNum;
+    private String currentTableNum = "101";
     private List<List<DishMenu>> endList = new ArrayList<>();
+
+
+    private Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what){
+                case 1 :
+                    list = (List<DishMenu>) msg.obj;
+                    System.out.println("从线程获取成功" + list.size());
+                    adapter = new DishTypeAdapter(getGroupList(),getChildList(),ChooseDishActivity.this);
+                    expandableListView.setAdapter(adapter);
+                    adapter.notifyDataSetChanged();
+                    break;
+                case 2 :
+                    endList = adapter.getList();
+                    //currentTableNum,endList 的信息传到 下单界面 传到activity 或者 储存
+                    dbManager.clearTempAndOrder();
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmm");
+                    String date = sdf.format(new Date());
+                    String serialNum = date + currentTableNum + "0000" +String.valueOf(new Random().nextInt(999));
+                    Order order = new Order(serialNum,currentTableNum,false);
+                    dbManager.saveOrder(order);
+                    for(List<DishMenu> dishMenus : endList){
+                        for(DishMenu dishMenuss : dishMenus){
+                            if(dishMenuss.isCheck()){
+                                dbManager.saveTempOrder(new TempOrder(currentTableNum,String.valueOf(dishMenuss.getDish_id()),1,""));
+                            }
+                        }
+                    }
+                    break;
+            }
+        }
+    };
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -78,10 +118,21 @@ public class ChooseDishActivity extends FragmentActivity {
             saveSpFirst();
         }
 
-        list = dbManager.getDishMenu();
-        adapter = new DishTypeAdapter(getGroupList(),getChildList(),this);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                List<DishMenu> list = dbManager.getDishMenu();
+                Message msg = handler.obtainMessage();
+                msg.what = 1;
+                msg.obj = list;
+                handler.sendMessage(msg);
+            }
+        }).start();
 
-        expandableListView.setGroupIndicator(null);
+
+
+
+        expandableListView.setGroupIndicator(null);//去掉箭头
 //        expandableListView.expandGroup(1);
         expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
@@ -102,7 +153,6 @@ public class ChooseDishActivity extends FragmentActivity {
             }
         });
 
-        expandableListView.setAdapter(adapter);
 
     }
 
@@ -182,6 +232,7 @@ public class ChooseDishActivity extends FragmentActivity {
         public void onClick(View view) {
             List<String> list = new ArrayList<>();
             List<List<DishMenu>> child = new ArrayList<>();
+            int t = 0;
             for(int i = 0;i < textViewArrayRight.length;i++){
                 if(textViewArrayRight[i].getId() == view.getId()){
                     btnRight.setText(textViewArrayRight[i].getText().toString());
@@ -192,10 +243,11 @@ public class ChooseDishActivity extends FragmentActivity {
                         list.add(getGroupList().get(i - 1));
                         child.add(getChildList().get(i - 1));
                     }
+                    t = i;
                 }
             }
             popupWindowRight.dismiss();
-            adapter.appendDataToAdapter(list,child);
+            adapter.appendDataToAdapter(list,child,t);
             list.clear();
             child.clear();
         }
@@ -255,8 +307,40 @@ public class ChooseDishActivity extends FragmentActivity {
     }
 
     @OnClick(R.id.btn_choosedish) public void choosedish(){
-        endList = adapter.getChildList();
-        //currentTableNum,endList 的信息传到 下单界面 传到activity 或者 储存
+//        endList = adapter.getList();
+//        //currentTableNum,endList 的信息传到 下单界面 传到activity 或者 储存
+//        dbManager.clearTempAndOrder();
+//        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+//        String date = sdf.format(new Date());
+//        String serialNum = date + currentTableNum + String.valueOf(new Random().nextInt(99999999));
+//        Order order = new Order(serialNum,currentTableNum,false);
+//        dbManager.saveOrder(order);
+//        for(List<DishMenu> dishMenus : endList){
+//            for(DishMenu dishMenuss : dishMenus){
+//                if(dishMenuss.isCheck()){
+//                    dbManager.saveTempOrder(new TempOrder(currentTableNum,String.valueOf(dishMenuss.getDish_id()),1,""));
+//                }
+//            }
+//        }
+
+
+//        System.out.println(dbManager.getOrder().get(0).getSerialNum());
+//        System.out.println(dbManager.getTempOrder().get(0).getDishId());
+
+        //还缺点东西暂时没想到,数据库操作最好放在线程
+        //// TODO: 2016/12/15
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Message msg = handler.obtainMessage();
+                msg.what = 2;
+                handler.sendMessage(msg);
+            }
+        }).start();
+
+
+        finish();
     }
 
 }

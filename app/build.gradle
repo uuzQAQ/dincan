@@ -37,4 +37,6 @@ dependencies {
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'com.android.support:recyclerview-v7:25.0.1'
     compile 'com.squareup.okhttp3:okhttp:3.5.0'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.5.0'
+    compile 'com.google.code.gson:gson:2.8.0'
 }

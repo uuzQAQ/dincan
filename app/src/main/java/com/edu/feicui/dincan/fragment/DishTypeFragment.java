@@ -26,7 +26,7 @@ import butterknife.ButterKnife;
 
 public class DishTypeFragment extends Fragment {
 
-    private static final String url = "http://10.0.1.10:8080/GourmetOrderServer/";
+    private static final String url = "http://10.0.2.2:8080/GourmetOrderServer/";
 
     @BindView(R.id.iv_first)
     ImageView ivFirst;

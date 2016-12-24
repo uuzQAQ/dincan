@@ -27,6 +27,9 @@
         <activity android:name=".Activity.ChangePasswordActivity"></activity>
         <activity android:name=".Activity.HomeActivity"></activity>
         <activity android:name=".Activity.ChooseDishActivity"></activity>
+        <activity android:name=".Activity.OrderActivity"></activity>
+        <activity android:name=".Activity.QueryAllOrderActivity"></activity>
+        <activity android:name=".Activity.EvolveActivity"></activity>
     </application>
 
 </manifest>

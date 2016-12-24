@@ -68,10 +68,10 @@ public class HomeActivity extends FragmentActivity {
 
     }
     @OnClick(R.id.btn_checkout) public void checkout(){
-
+        startActivity(new Intent(HomeActivity.this,OrderActivity.class));
     }
     @OnClick(R.id.btn_order_schedule) public void orderSchedule(){
-
+        startActivity(new Intent(HomeActivity.this,QueryAllOrderActivity.class));
     }
     @OnClick(R.id.btn_add) public void add(){
 

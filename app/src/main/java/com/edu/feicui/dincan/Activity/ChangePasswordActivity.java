@@ -34,7 +34,7 @@ public class ChangePasswordActivity extends Activity {
     @BindView(R.id.et_again_new_pw) EditText etOkNew;
     @BindView(R.id.tv_flName) TextView tvName;
     private static RequestQueue requestQueue;
-    private static final String url = "http://10.0.1.10:8080/GourmetOrderServer/loginServlet";
+    private static final String url = "http://10.0.2.2:8080/GourmetOrderServer/loginServlet";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
