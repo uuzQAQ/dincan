@@ -41,7 +41,7 @@ public class ChangePasswordActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.first_login);
         ButterKnife.bind(this);
-        tvName.setText("用户名 " + getIntent().getStringExtra("username"));
+        tvName.setText(getIntent().getStringExtra("username"));
         if(requestQueue == null){
             requestQueue = Volley.newRequestQueue(this);
         }

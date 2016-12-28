@@ -5,12 +5,17 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.view.ViewPager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 
 import com.edu.feicui.dincan.R;
-import com.edu.feicui.dincan.adapter.ViewPagerAdapter;
+import com.edu.feicui.dincan.view.fancycoverflow.FancyCoverFlow;
+import com.edu.feicui.dincan.view.fancycoverflow.FancyCoverFlowAdapter;
+import com.edu.feicui.dincan.view.fancycoverflow.ImageAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,29 +30,29 @@ import butterknife.OnClick;
 
 public class HomeActivity extends FragmentActivity {
 
-    @BindView(R.id.viewPager)
-    ViewPager viewPager;
+    @BindView(R.id.fcf)
+    FancyCoverFlow mFancyCoverFlow;
+    @BindView(R.id.image1)
+    ImageView mImageView1;
+    @BindView(R.id.image2)
+    ImageView mImageView2;
+    @BindView(R.id.image3)
+    ImageView mImageView3;
+    @BindView(R.id.image4)
+    ImageView mImageView4;
+    @BindView(R.id.image5)
+    ImageView mImageView5;
 
-
-
-    private ViewPagerAdapter adapter;
-    private List<View> list = new ArrayList<>();
-    private int[] imageArray = {
-            R.mipmap.gallery1,
-            R.mipmap.gallery2,
-            R.mipmap.gallery3,
-            R.mipmap.gallery4,
-            R.mipmap.gallery5,
-            R.mipmap.gallery6
-    };
-
+    private FancyCoverFlowAdapter adapter;
+    private int curPosition = 0;
+    private ImageView[] mImageViews;
     private Handler handler = new Handler(){
         public void handleMessage(android.os.Message msg) {
-            int currentPage = viewPager.getCurrentItem();
-            viewPager.setCurrentItem(currentPage + 1);
 
+            mFancyCoverFlow.setSelection((curPosition++) % 5);
             Message message = handler.obtainMessage();
             handler.sendMessageDelayed(message, 2000);
+
         };
     };
 
@@ -56,8 +61,42 @@ public class HomeActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
         ButterKnife.bind(this);
-        initViewPager();
-        viewPager.setCurrentItem(imageArray.length * 1000);
+        mImageViews = new ImageView[]{mImageView1, mImageView2, mImageView3, mImageView4, mImageView5};
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        adapter = new ImageAdapter(this);
+
+        // item之间的间隙可以近似认为是imageview的宽度与缩放比例的乘积的一半
+        mFancyCoverFlow.setSpacing(-72);
+        mFancyCoverFlow.setAdapter(adapter);
+        mFancyCoverFlow.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int position, long id) {
+                curPosition = position;
+                for(int i = 0;i < mImageViews.length;i++){
+                    mImageViews[i].setImageResource(R.drawable.null_point);
+                }
+                mImageViews[position].setImageResource(R.drawable.point);
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+        // 点击事件
+        mFancyCoverFlow.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+
+            }
+        });
+
 
         Message msg = handler.obtainMessage();
         handler.sendMessageDelayed(msg, 2000);
@@ -80,14 +119,4 @@ public class HomeActivity extends FragmentActivity {
 
     }
 
-    public void initViewPager(){
-        for(int i = 0;i < imageArray.length;i++){
-            ImageView imageView = (ImageView) getLayoutInflater().inflate(R.layout.image_item, null);
-            imageView.setImageResource(imageArray[i]);
-            list.add(imageView);
-        }
-
-        adapter = new ViewPagerAdapter(HomeActivity.this,list);
-        viewPager.setAdapter(adapter);
-    }
 }

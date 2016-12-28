@@ -1,119 +1,219 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    >
+    android:background="@drawable/login"
 
+
+    >
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp"
+        android:gravity="center_vertical"
+        android:layout_alignParentRight="true"
         >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#ff0000"
-            android:text="亲，这是您首次登录，请修改密码哦!"
-            android:textSize="20sp"
-            android:layout_marginBottom="10dp"
+        <ImageView
+            android:layout_width="56dp"
+            android:layout_height="80dp"
+            android:src="@drawable/logo"
+            android:layout_centerHorizontal="true"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
             />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="用户名 login03"
-            android:id="@+id/tv_flName"
-            android:textSize="20sp"
-            android:layout_marginBottom="10dp"
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="45dp"
+            android:background="#ffffffff"
             />
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="10dp"
-            >
+            android:orientation="vertical">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="    原密码"
-                android:layout_marginRight="10dp"
-                android:textSize="20sp"
+                android:text="用户名:"
+                android:textColor="#e8e8e8"
+                android:padding="5dp"
+                android:textSize="10sp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="用户名:"
+                android:textColor="#fefefe"
+                android:padding="5dp"
+                android:textSize="12sp"
+                android:id="@+id/tv_flName"
+                />
+        </LinearLayout>
 
+    </LinearLayout>
+
+
+
+    <Button
+        android:layout_width="273dp"
+        android:layout_height="35dp"
+        android:id="@+id/bt_ensure"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/enter"
+        android:text="确认"
+        android:gravity="center"
+        android:layout_marginBottom="70dp"
+        android:textColor="#fefefe"
+        />
+    <TextView
+        android:layout_width="273dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="*亲，这是您首次登录，请修改密码哦!"
+        android:textColor="#fefefe"
+        android:layout_marginBottom="45dp"
+        android:gravity="center"
+        />
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:layout_width="273dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="20dp"
+            android:layout_marginTop="50dp"
+            android:gravity="center_vertical"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleX="0.5"
+                android:scaleY="0.5"
+                android:src="@drawable/login_password"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="5dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="旧密码"
+                android:layout_marginRight="10dp"
+                android:textSize="11sp"
+                android:textColor="#DDDDDDDD"
                 />
 
             <EditText
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/input_bg"
-                android:hint="请输入原密码"
-                android:padding="5dp"
+                android:background="@null"
                 android:id="@+id/et_old_pw"
+                android:padding="5dp"
                 android:inputType="textPassword"
                 />
         </LinearLayout>
+        <View
+            android:layout_width="273dp"
+            android:layout_height="3dp"
+            android:background="@drawable/line2"
+            />
+
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="273dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginBottom="10dp"
+            android:paddingTop="20dp"
+            android:gravity="center_vertical"
             >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/login_password"
+                android:scaleX="0.5"
+                android:scaleY="0.5"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="5dp"
+                />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="    新密码"
+                android:text="新密码"
                 android:layout_marginRight="10dp"
-                android:textSize="20sp"
+                android:textSize="11sp"
+                android:textColor="#DDDDDDDD"
                 />
 
             <EditText
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/input_bg"
-                android:hint="请输入新密码"
+                android:background="@null"
+                android:inputType="textPassword"
                 android:id="@+id/et_new_pw"
                 android:padding="5dp"
-                android:inputType="textPassword"
                 />
         </LinearLayout>
+        <View
+            android:layout_width="273dp"
+            android:layout_height="3dp"
+            android:background="@drawable/line2"
+            />
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="273dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginBottom="10dp"
+            android:paddingTop="20dp"
+            android:gravity="center_vertical"
             >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/login_password"
+                android:scaleX="0.5"
+                android:scaleY="0.5"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="5dp"
+                />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="确认密码"
                 android:layout_marginRight="10dp"
-                android:textSize="20sp"
-
+                android:textSize="11sp"
+                android:textColor="#DDDDDDDD"
                 />
 
             <EditText
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/input_bg"
-                android:hint="请重新输入新密码"
+                android:background="@null"
+                android:inputType="textPassword"
                 android:id="@+id/et_again_new_pw"
                 android:padding="5dp"
-                android:inputType="textPassword"
                 />
         </LinearLayout>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:background="@drawable/selector_ok"
-            android:layout_gravity="center_horizontal"
-            android:id="@+id/bt_ensure"
+        <View
+            android:layout_width="273dp"
+            android:layout_height="3dp"
+            android:background="@drawable/line2"
             />
-
     </LinearLayout>
-
-
-</LinearLayout>
+</RelativeLayout>

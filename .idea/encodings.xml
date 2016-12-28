@@ -2,6 +2,7 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/app/src/main/assets/db/dish_db.sql" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/app/src/main/assets/db/dish_db.sql" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/edu/feicui/dincan/view/fancycoverflow/FancyCoverFlow.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/edu/feicui/dincan/view/fancycoverflow/ImageAdapter.java" charset="UTF-8" />
   </component>
 </project>
