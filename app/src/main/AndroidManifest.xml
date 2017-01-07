@@ -24,12 +24,40 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.ChangePasswordActivity"></activity>
-        <activity android:name=".Activity.HomeActivity"></activity>
-        <activity android:name=".Activity.ChooseDishActivity"></activity>
-        <activity android:name=".Activity.OrderActivity"></activity>
-        <activity android:name=".Activity.QueryAllOrderActivity"></activity>
-        <activity android:name=".Activity.EvolveActivity"></activity>
+        <activity android:name=".Activity.ChangePasswordActivity"
+                  android:screenOrientation="landscape"
+            ></activity>
+        <activity android:name=".Activity.HomeActivity"
+                  android:screenOrientation="landscape"
+            ></activity>
+        <activity android:name=".Activity.ChooseDishActivity"
+                  android:screenOrientation="landscape"
+            ></activity>
+        <activity android:name=".Activity.OrderActivity"
+                  android:screenOrientation="landscape"
+            ></activity>
+        <activity android:name=".Activity.QueryEvolverActivity"
+                  android:screenOrientation="landscape"
+            ></activity>
+        <activity android:name=".Activity.EvolveActivity"
+                  android:screenOrientation="landscape"
+            ></activity>
+        <activity android:name=".Activity.NewChooseDishActivity"
+                  android:screenOrientation="landscape"
+            ></activity>
+        <activity android:name=".Activity.MoreActivity"
+                  android:screenOrientation="landscape"
+            ></activity>
+        <activity android:name=".Activity.QueryOrderActivity"
+                  android:screenOrientation="landscape"
+            ></activity>
+        <activity android:name=".Activity.QueryAllOrderActivity"
+                  android:screenOrientation="landscape"
+            ></activity>
+        <activity android:name=".Activity.MergeTableActivity"
+                  android:screenOrientation="landscape"
+            >
+        </activity>
     </application>
 
 </manifest>

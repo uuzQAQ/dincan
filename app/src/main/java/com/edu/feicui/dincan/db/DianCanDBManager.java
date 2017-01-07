@@ -138,6 +138,23 @@ public class DianCanDBManager {
         database.close();
     }
 
+
+    public void saveNoTempOrder(TempOrder tempOrder){
+        SQLiteDatabase database = helper.getWritableDatabase();
+        Cursor cursor = database.rawQuery("select * from notemp_orders where dish_id = ?",new String[]{String.valueOf(tempOrder.getDishId())});
+        if(cursor.moveToFirst()){
+            return;
+        }
+        cursor.close();
+        ContentValues values = new ContentValues();
+        values.put("table_num",tempOrder.getTableNum());
+        values.put("dish_id",tempOrder.getDishId());
+        values.put("count",tempOrder.getCount());
+        values.put("remark",tempOrder.getRemark());
+        database.insert("notemp_orders",null,values);
+        database.close();
+    }
+
     public List<Order> getOrder(){
         SQLiteDatabase database = helper.getWritableDatabase();
         Cursor cursor = database.rawQuery("select * from orders",null);
@@ -177,6 +194,23 @@ public class DianCanDBManager {
         return list;
     }
 
+    public List<TempOrder> getNoTempOrder(){
+        SQLiteDatabase database = helper.getWritableDatabase();
+        Cursor cursor = database.rawQuery("select * from notemp_orders",null);
+        List<TempOrder> list = new ArrayList<>();
+        while(cursor.moveToNext()){
+            String tableNum = cursor.getString(cursor.getColumnIndex("table_num"));
+            String dishId = cursor.getString(cursor.getColumnIndex("dish_id"));
+            int count = cursor.getInt(cursor.getColumnIndex("count"));
+            String remark = cursor.getString(cursor.getColumnIndex("remark"));
+            TempOrder tempOrder = new TempOrder(tableNum,dishId,count,remark);
+            list.add(tempOrder);
+        }
+        cursor.close();
+        database.close();
+        return list;
+    }
+
     public void deleteTempOrderItem(String tableNum,String dishId){
         SQLiteDatabase database = helper.getWritableDatabase();
         database.delete("temp_orders","table_num=? and dish_id=?",new String[]{tableNum,dishId});
@@ -202,7 +236,15 @@ public class DianCanDBManager {
     public void clearTempAndOrder(){
         SQLiteDatabase database = helper.getWritableDatabase();
         database.delete("temp_orders",null,null);
-        database.delete("orders",null,null);
+        database.delete("orders","checkout=0",null);
+        database.close();
+    }
+
+    public void updateOrder(String serialNum){
+        SQLiteDatabase database = helper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("checkout",true);
+        database.update("orders",values,"order_id=?",new String[]{serialNum});
         database.close();
     }
 

@@ -1,5 +1,7 @@
 package com.edu.feicui.dincan.entity;
 
+import java.util.List;
+
 /**
  * Created by user on 2016/12/10.
  */
@@ -14,6 +16,15 @@ public class MessageEvent {
     private String dishName;
     private String dishPrice;
     private String dishMessage;
+    private List<DishMenu> dishlist;
+
+    public List<DishMenu> getDishlist() {
+        return dishlist;
+    }
+
+    public void setDishlist(List<DishMenu> dishlist) {
+        this.dishlist = dishlist;
+    }
 
     public int getType() {
         return type;

@@ -16,6 +16,10 @@ public class DishMenu {
     private String img_path;
     private boolean isCheck;
 
+
+
+
+
     public boolean isCheck() {
         return isCheck;
     }

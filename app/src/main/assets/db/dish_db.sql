@@ -50,3 +50,48 @@ insert into dish_list(dish_id,dish_name,price,introduction,dish_class,img_downlo
 
 insert into dish_list(dish_id,dish_name,price,introduction,dish_class,img_download,img_path) values('21','Íë¿ê',1,'ÖĞ¹úÈË³Ô·¹±Ø±¸µÄ²Í¾ß','ÆäËû',1,'images/tableware1.png')
 
+insert into dish_list(dish_id,dish_name,price,introduction,dish_class,img_download,img_path) values('22','Õ¨ÅÅ¹Ç',25,'Ïã´à¿É¿Ú','ÈÈ²Ë',1,'images/hotdishes5.png')
+
+insert into dish_list(dish_id,dish_name,price,introduction,dish_class,img_download,img_path) values('23','·ÛË¿ÌÀ',12,'ºÃ³Ô','ÌÀÀà',1,'images/soup5.png')
+
+insert into dish_list(dish_id,dish_name,price,introduction,dish_class,img_download,img_path) values('24','ºìÉÕÈâ',22,'ºÃºÃ³Ô','ÈÈ²Ë',1,'images/hotdishes6.png')
+
+insert into dish_list(dish_id,dish_name,price,introduction,dish_class,img_download,img_path) values('25','ÈâÄ©ÇÑ×Ó',26,'À±£¬°è·¹³ÔºÃ³Ô','ÈÈ²Ë',1,'images/hotdishes7.png')
+
+insert into dish_list(dish_id,dish_name,price,introduction,dish_class,img_download,img_path) values('26','Á¹°èÍÁ¶¹Ë¿',13,'³Ô³Ô³Ô','Á¹²Ë',1,'images/colddishes5.png')
+
+insert into dish_list(dish_id,dish_name,price,introduction,dish_class,img_download,img_path) values('27','»Æ¹Ï°èÑó´Ğ',14,'½¡¿µ','Á¹²Ë',1,'images/colddishes6.png')
+
+insert into dish_list(dish_id,dish_name,price,introduction,dish_class,img_download,img_path) values('28','Å£ÈâÃ×·Û',15,'À±','ÌÀÀà',1,'images/soup6.png')
+
+insert into dish_list(dish_id,dish_name,price,introduction,dish_class,img_download,img_path) values('29','ÄÌÏãµ°¸â',16,'ÈËÆøÍÆ¼ö','Ö÷Ê³',1,'images/staplefood5.png')
+
+insert into dish_list(dish_id,dish_name,price,introduction,dish_class,img_download,img_path) values('30','Ã·²Ë¿ÛÈâ',23,'.....','ÈÈ²Ë',1,'images/hotdishes8.png')
+
+insert into dish_list(dish_id,dish_name,price,introduction,dish_class,img_download,img_path) values('31','Á¹°èÆ¤µ°',8,'Î¢À±','Á¹²Ë',1,'images/colddishes7.png')
+
+insert into dish_list(dish_id,dish_name,price,introduction,dish_class,img_download,img_path) values('32','À±ÍŞÍŞ²Ë',9,'À±À±À±','Á¹²Ë',1,'images/colddishes8.png')
+
+insert into dish_list(dish_id,dish_name,price,introduction,dish_class,img_download,img_path) values('33','Á¹°èÄ¾¶ú',10,'À±','Á¹²Ë',1,'images/colddishes9.png')
+
+insert into dish_list(dish_id,dish_name,price,introduction,dish_class,img_download,img_path) values('34','Á«Åº',8,'...','Á¹Àà',1,'images/colddishes10.png')
+
+insert into dish_list(dish_id,dish_name,price,introduction,dish_class,img_download,img_path) values('35','ÂÜ²·Ë¿',6,'.......','Á¹²Ë',1,'images/colddishes11.png')
+
+insert into dish_list(dish_id,dish_name,price,introduction,dish_class,img_download,img_path) values('36','ëçÖÆÂÜ²·¶¹½Ç',5,'.....','Á¹²Ë',1,'images/colddishes12.png')
+
+insert into dish_list(dish_id,dish_name,price,introduction,dish_class,img_download,img_path) values('37','Ä¾¹ÏÌÇË®',5,'Ìğ','ÒûÁÏ',1,'images/drink5.png')
+
+insert into dish_list(dish_id,dish_name,price,introduction,dish_class,img_download,img_path) values('38','ºìÉÕó¦Ğ·',40,'¿´ÉÏÈ¥ºÃ³Ô','ÈÈ²Ë',1,'images/hotdishes9.png')
+
+insert into dish_list(dish_id,dish_name,price,introduction,dish_class,img_download,img_path) values('39','ÂéÀ±Ğ¡ÁúÏº',38,'À±','ÈÈ²Ë',1,'images/hotdishes10.png')
+
+insert into dish_list(dish_id,dish_name,price,introduction,dish_class,img_download,img_path) values('40','¹¾ààÈâ',28,'ËáËáÌğÌğ','ÈÈ²Ë',1,'images/hotdishes11.png')
+
+insert into dish_list(dish_id,dish_name,price,introduction,dish_class,img_download,img_path) values('41','ÉÕ¼¦',42,'Æ¤´àÈáÄÛ','ÈÈ²Ë',1,'images/hotdishes12.png')
+
+insert into dish_list(dish_id,dish_name,price,introduction,dish_class,img_download,img_path) values('42','ó¦Ğ·ÌÀ',37,'.........','ÌÀÀà',1,'images/soup7.png')
+
+insert into dish_list(dish_id,dish_name,price,introduction,dish_class,img_download,img_path) values('43','ÄûÃÊ¼¦°Ç',32,'....','ÈÈ²Ë',1,'images/hotdishes13.png')
+
+insert into dish_list(dish_id,dish_name,price,introduction,dish_class,img_download,img_path) values('44','À±×Ó¼¦',32,'À±','ÈÈ²Ë',1,'images/hotdishes14.png')

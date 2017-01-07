@@ -6,19 +6,15 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.edu.feicui.dincan.R;
 import com.edu.feicui.dincan.view.fancycoverflow.FancyCoverFlow;
 import com.edu.feicui.dincan.view.fancycoverflow.FancyCoverFlowAdapter;
 import com.edu.feicui.dincan.view.fancycoverflow.ImageAdapter;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -67,6 +63,8 @@ public class HomeActivity extends FragmentActivity {
         adapter = new ImageAdapter(this);
 
         // item之间的间隙可以近似认为是imageview的宽度与缩放比例的乘积的一半
+        mFancyCoverFlow.setScaleX(1.2f);
+        mFancyCoverFlow.setScaleY(1.2f);
         mFancyCoverFlow.setSpacing(-72);
         mFancyCoverFlow.setAdapter(adapter);
         mFancyCoverFlow.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -103,20 +101,20 @@ public class HomeActivity extends FragmentActivity {
     }
 
     @OnClick(R.id.btn_choosedish) public void choosedish(){
-        startActivity(new Intent(HomeActivity.this,ChooseDishActivity.class));
+        startActivity(new Intent(HomeActivity.this,NewChooseDishActivity.class));
 
     }
     @OnClick(R.id.btn_checkout) public void checkout(){
         startActivity(new Intent(HomeActivity.this,OrderActivity.class));
     }
     @OnClick(R.id.btn_order_schedule) public void orderSchedule(){
-        startActivity(new Intent(HomeActivity.this,QueryAllOrderActivity.class));
+        startActivity(new Intent(HomeActivity.this,QueryEvolverActivity.class));
     }
     @OnClick(R.id.btn_add) public void add(){
-
+        Toast.makeText(this, "该功能未开放", Toast.LENGTH_SHORT).show();
     }
     @OnClick(R.id.btn_more) public void more(){
-
+        startActivity(new Intent(HomeActivity.this,MoreActivity.class));
     }
 
 }
