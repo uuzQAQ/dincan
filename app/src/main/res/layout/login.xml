@@ -14,7 +14,7 @@
         android:layout_height="80dp"
         android:src="@drawable/logo"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         />
 
     <Button
@@ -31,20 +31,19 @@
         />
 
     <LinearLayout
-
         android:layout_width="match_parent"
-        android:layout_height="260dp"
+        android:layout_height="210dp"
         android:orientation="vertical"
         android:gravity="center"
         android:layout_centerVertical="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        >
 
         <LinearLayout
             android:layout_width="273dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingTop="20dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:gravity="center_vertical"
             >
             <ImageView
@@ -72,6 +71,7 @@
                 android:id="@+id/et_username"
                 android:padding="5dp"
                 android:text="login01"
+                android:textColor="#dddddddd"
                 />
         </LinearLayout>
         <View
@@ -115,6 +115,7 @@
                 android:id="@+id/et_password"
                 android:padding="5dp"
                 android:text="999999"
+                android:textColor="#dddddddd"
                 />
         </LinearLayout>
         <View
