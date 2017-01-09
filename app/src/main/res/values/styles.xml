@@ -12,14 +12,12 @@
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:background">@drawable/selector_btn_bg</item>
-        <item name="android:drawablePadding">15dp</item>
-        <item name="android:gravity">center_vertical</item>
+        <item name="android:gravity">center</item>
         <item name="android:scaleX">1</item>
         <item name="android:scaleY">1</item>
-        <item name="android:paddingLeft">12dp</item>
-        <item name="android:paddingRight">3dp</item>
+        <item name="android:paddingLeft">10dp</item>
         <item name="android:textColor">@drawable/selector_color_accent</item>
-        <item name="android:textSize">11sp</item>
+        <item name="android:textSize">12sp</item>
         <item name="android:layout_weight">1</item>
     </style>
 
